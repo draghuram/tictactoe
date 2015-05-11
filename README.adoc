@@ -1,0 +1,5 @@
+
+= TicTacToe
+
+This project contains code for a Raspberry PI based TicTacToe playing device.
+
