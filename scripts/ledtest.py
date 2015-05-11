@@ -10,7 +10,7 @@ dependencies_dir = os.path.join(root_dir, "dependencies")
 
 sys.path.insert(0, os.path.join(dependencies_dir, "Adafruit_Python_GPIO"))
 sys.path.insert(0, os.path.join(dependencies_dir, "Adafruit_Python_LED_Backpack"))
-sys.path.insert(0, os.path.join(dependencies_dir, "Adafruit_Python_LED_PureIO"))
+sys.path.insert(0, os.path.join(dependencies_dir, "Adafruit_Python_PureIO"))
 
 from Adafruit_LED_Backpack import Matrix8x8
 
