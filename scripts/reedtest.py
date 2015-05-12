@@ -36,6 +36,7 @@ curr_input = [1] * 9
 
 while True:
     new_input = [GPIO.input(x) for x in gpio_list]
+    # new_input[3] = 1 - new_input[3]
     # print "curr: ", curr_input
     # print "new: ", new_input
     if curr_input != new_input:

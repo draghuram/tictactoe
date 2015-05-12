@@ -36,11 +36,14 @@ GPIO.setmode(GPIO.BCM)
 
 # This is a list of GPIO pins connected to squares as numbered
 # in the original project. 
-gpio_list = [26, 19, 13, 6, 5, 22, 27, 17, 4]
+gpio_list = [26, 19, 13, 12, 5, 22, 27, 17, 4]
 for pin in gpio_list:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-curr_input = [1] * 9
+def init_input():
+    global curr_input
+
+    curr_input = [1] * 9
 
 # Initialize the LCD using the pins
 lcd = LCD.Adafruit_CharLCDPlate()
@@ -100,7 +103,7 @@ def display_instruct():
     """Display game instructions."""
 
     lcd.clear()
-    lcd.message(' Noughts &\n Crosses')
+    lcd.message(' Tic Tac Toe')
     time.sleep(1)  #give time to read message
     for l in range(9):
         ledon(l)
@@ -276,6 +279,7 @@ def human_move(board, human):
             dirx, y = find_change(curr_input, new_input)
             if dirx == "Open":
                 lcd.clear()
+                print "Square: ", y, " is open"
                 lcd.message('\nNo!, put it back')
                 time.sleep(1)  #give time to read message
                 lcd.clear()
@@ -381,11 +385,13 @@ def congrat_winner(the_winner, computer, human):
        lcd.message("No, no! You won!")
     elif the_winner == TIE:
         lcd.message("Its a Tie!")
-    time.sleep(1)  #give time to read message       
+    time.sleep(5)  #give time to read message       
 
 def main():
     global mbrd
     while True:
+        init_input()
+
         display_instruct()
         
         check_clear()
