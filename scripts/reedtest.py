@@ -32,10 +32,12 @@ gpio_list = [26, 19, 13, 6, 5, 22, 27, 17, 4]
 for pin in gpio_list:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-curr_input = [1] * 0
+curr_input = [1] * 9
 
 while True:
     new_input = [GPIO.input(x) for x in gpio_list]
+    # print "curr: ", curr_input
+    # print "new: ", new_input
     if curr_input != new_input:
         # There has been a state change.
         dirx, square_num = find_change(curr_input, new_input)
@@ -44,6 +46,7 @@ while True:
         curr_input = new_input
 
     time.sleep(0.1)
+    # raw_input("Enter: ")
 
 
 
