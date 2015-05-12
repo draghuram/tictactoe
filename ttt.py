@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 import sys
 sys.path.insert(0, "/home/pi/tictactoe/dependencies/Adafruit_Python_LED_Backpack")
@@ -213,6 +214,8 @@ def legal_moves(board):
 def make(move):
 #Flash LED on square move +1 until registers
 # light LED
+    global curr_input
+
     w2=10
     print "led on move ", move
     ledon(move)
@@ -224,7 +227,7 @@ def make(move):
         if curr_input != new_input:
             # There has been a state change.
             dirx, w2 = find_change(curr_input, new_input)
-            if dirx == "Close" and w2 == move :
+            if dirx == "Close" and (w2-1) == move :
                 movecomp = True  # if the square is closed in the right place we're done
                 curr_input = new_input
 
@@ -256,6 +259,8 @@ def winner(board):
     return None
 
 def human_move(board, human):
+    global curr_input
+
     chcol =["A","B","C"]  # column labels
     print "in Human Move"
     lcd.clear()
@@ -276,7 +281,7 @@ def human_move(board, human):
                 lcd.clear()
                 lcd.message(' Make Your Move')
             else:
-                move=y-1+l*8 # different from test prog as need numbers 0-8
+                move=y-1 # different from test prog as need numbers 0-8
                 curr_input = new_input
    
     print "Hmove " , move
@@ -384,7 +389,6 @@ def main():
         display_instruct()
         
         check_clear()
-        print "startafter clear " ,mbrd
         get_level()
         computer, human = pieces()
         turn = X
