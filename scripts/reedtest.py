@@ -28,7 +28,7 @@ GPIO.setmode(GPIO.BCM)
 
 # This is a list of GPIO pins connected to squares as numbered
 # in the original project. 
-gpio_list = [26, 19, 13, 6, 5, 22, 27, 17, 4]
+gpio_list = [26, 19, 13, 12, 5, 22, 27, 17, 4]
 for pin in gpio_list:
     GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 

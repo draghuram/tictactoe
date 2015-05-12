@@ -1,7 +1,15 @@
+#!/usr/bin/env python
+
 # Test Module for NOX : Noughts and crosses / Tic Tac Toe Game
 # lights LED when reed switch closes
 
-import smbus
+import sys
+sys.path.insert(0, "/home/pi/tictactoe/dependencies/Adafruit_Python_LED_Backpack")
+sys.path.insert(0, "/home/pi/tictactoe/dependencies/Adafruit_Python_GPIO")
+sys.path.insert(0, "/home/pi/tictactoe/dependencies/Adafruit_Python_PureIO")
+sys.path.insert(0, "/home/pi/tictactoe/dependencies/Adafruit_Python_CharLCD")
+
+# import smbus
 import time
 import math
 from Adafruit_LED_Backpack import Matrix8x8
@@ -57,6 +65,8 @@ while True:
 
     x = int((w-1)/3)+1   # anodes numbers starts 1
     y = (2+w)%3   # cathodes number start 0
+
+    print "x =", x, ", y =", y
       
     if dirx == "Close":   display.set_pixel(x, y, 1)  # switch on the LED
     if dirx == "Open":   display.set_pixel(x, y, 0)  # switch off the LED
