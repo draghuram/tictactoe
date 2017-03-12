@@ -1,15 +1,21 @@
 #!/usr/bin/env python
 
+import os
 import sys
 import time
 
-# print sys.path
+script_dir = os.path.dirname(os.path.abspath(__file__))
+root_dir = os.path.abspath(os.path.join(script_dir, ".."))
+dependencies_dir = os.path.join(root_dir, "dependencies")
+
+sys.path.insert(0, os.path.join(dependencies_dir, "Adafruit_Python_GPIO"))
+sys.path.insert(0, os.path.join(dependencies_dir, "Adafruit_Python_LED_Backpack"))
+sys.path.insert(0, os.path.join(dependencies_dir, "Adafruit_Python_LED_PureIO"))
 
 from Adafruit_LED_Backpack import Matrix8x8
 
 # Create display instance on default I2C address (0x70) and bus number.
 display = Matrix8x8.Matrix8x8(address=0x70, busnum=1)
-
 
 # check using I2cdetect -y 1  to make sure the address is 70, if not edit the line above to change it
 # the correct address

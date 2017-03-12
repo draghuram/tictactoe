@@ -1,0 +1,15 @@
+[submodule "dependencies/Adafruit_Python_GPIO"]
+	path = dependencies/Adafruit_Python_GPIO
+	url = https://github.com/draghuram/Adafruit_Python_GPIO.git
+[submodule "dependencies/Adafruit_Python_LED_Backpack"]
+	path = dependencies/Adafruit_Python_LED_Backpack
+	url = https://github.com/draghuram/Adafruit_Python_LED_Backpack.git
+[submodule "dependencies/maxnox"]
+	path = dependencies/maxnox
+	url = https://github.com/draghuram/maxnox.git
+[submodule "dependencies/Adafruit_Python_PureIO"]
+	path = dependencies/Adafruit_Python_PureIO
+	url = https://github.com/draghuram/Adafruit_Python_PureIO.git
+[submodule "dependencies/Adafruit_Python_CharLCD"]
+	path = dependencies/Adafruit_Python_CharLCD
+	url = https://github.com/draghuram/Adafruit_Python_CharLCD.git
